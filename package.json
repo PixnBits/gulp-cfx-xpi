@@ -1,0 +1,16 @@
+{
+  "name": "gulp-cfx",
+  "version": "0.0.1",
+  "description": "Packe Firefox Add-ons in the pipeline.",
+  "homepage": "https://github.com/evanxd/gulp-cfx",
+  "repository": "git://github.com/evanxd/gulp-cfx.git",
+  "author": "Evan Tseng <itoyxd@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "gulpplugin",
+    "firefox"
+  ],
+  "bugs": {
+    "url": "https://github.com/evanxd/gulp-cfx/issues"
+  }
+}
