@@ -1,7 +1,7 @@
-gulp-cfx
-========
+gulp-cfx-xpi
+============
 
-Package Firefox Add-ons in the pipeline.
+Package Firefox Add-ons.
 
 Usage
 =====
