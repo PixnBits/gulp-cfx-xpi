@@ -1,16 +1,22 @@
 {
-  "name": "gulp-cfx",
-  "version": "0.0.1",
-  "description": "Packe Firefox Add-ons in the pipeline.",
-  "homepage": "https://github.com/evanxd/gulp-cfx",
-  "repository": "git://github.com/evanxd/gulp-cfx.git",
-  "author": "Evan Tseng <itoyxd@gmail.com>",
+  "name": "gulp-cfx-xpi",
+  "version": "0.0.2",
+  "description": "Package Firefox Add-ons in the pipeline.",
+  "main": "index.js",
+  "homepage": "https://github.com/PixnBits/gulp-cfx-xpi",
+  "repository": "git://github.com/PixnBits/gulp-cfx-xpi.git",
+  "author": "PixnBits <github@pixnbits.org>",
   "license": "MIT",
   "keywords": [
     "gulpplugin",
     "firefox"
   ],
   "bugs": {
-    "url": "https://github.com/evanxd/gulp-cfx/issues"
+    "url": "https://github.com/PixnBits/gulp-cfx-xpi/issues"
+  },
+  "dependencies": {
+    "cfx": "0.0.3",
+    "gulp-util": "^3.0.3",
+    "through2": "^0.6.3"
   }
 }
