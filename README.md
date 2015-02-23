@@ -24,3 +24,11 @@ gulp.task('multiple', function(){
     .pipe(gulp.dest('./build/'));
 });
 ```
+
+Dependencies
+============
+Those listed by [node-cxf](https://github.com/jsantell/node-cfx#dependencies):
+* python
+* firefox
+
+See [Mozilla's SDK installation page](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation) for more information
