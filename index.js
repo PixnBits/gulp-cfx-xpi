@@ -15,27 +15,16 @@ var cwd_cfx = process.cwd();
 process.chdir(cwd_orig);
 
 var cfxPackagePlugin = function() {
-	var packageDirs = [];
+	var dirsProcessing = [];
 
 	function transform(chunk, encoding, callback) {
-		var chunkDir = path.dirname(chunk.path);
-		if(!~packageDirs.indexOf(chunkDir)){
-			packageDirs.push(chunkDir);
-		}
-		callback();
-	}
-
-	function flush(callback){
 		var stream = this;
-		var finished = [];
+		var packageDir = path.dirname(chunk.path);
 
-		if(!packageDirs.length){
-			return callback();
-		}
+		if(!~dirsProcessing.indexOf(packageDir)){
+			dirsProcessing.push(packageDir);
 
-		process.chdir(cwd_cfx);
-		
-		packageDirs.forEach(function(packageDir){
+			process.chdir(cwd_cfx);
 
 			var proc = cfx.xpi({ dir: packageDir, pkgdir: packageDir });
 			proc.stderr.on('data', function (data) { 
@@ -63,23 +52,25 @@ var cfxPackagePlugin = function() {
 					fs.unlink(xpiFilePath);
 					
 				}else{
+					process.chdir(cwd_orig);
 					throw new PluginError('cfx',{
 						message: 'xpi error ('+code+')'
 					});
 				}
 
-				finished.push(code);
-				if(finished.length === packageDirs.length){
-					process.chdir(cwd_orig);
-					callback();
-				}
+				process.chdir(cwd_orig);
+				callback();
 			});
-		});
 
-		
+		}else{
+			// gutil.warn(...)??
+			// see https://github.com/gulpjs/gulp-util/issues/33
+			gutil.log( gutil.colors.yellow(''+packageDir+' already being packaged') );
+			callback();
+		}
 	}
 
-	return through.obj(transform, flush);
+	return through.obj(transform);
 };
 
 module.exports = cfxPackagePlugin;
