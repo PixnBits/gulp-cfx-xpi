@@ -1,7 +1,13 @@
-gulp-cfx-xpi
+[gulp-cfx-xpi](https://www.npmjs.com/package/gulp-cfx-xpi)
 ============
 
 Package Firefox Add-ons.
+
+Install
+=======
+```bash
+npm install gulp-cfx-xpi --save
+```
 
 Usage
 =====
