@@ -1,6 +1,6 @@
 {
   "name": "gulp-cfx-xpi",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Package Firefox Add-ons",
   "main": "index.js",
   "homepage": "https://github.com/PixnBits/gulp-cfx-xpi",

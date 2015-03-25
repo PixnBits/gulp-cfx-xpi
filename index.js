@@ -28,9 +28,7 @@ var cfxPackagePlugin = function() {
 
 			var proc = cfx.xpi({ dir: packageDir, pkgdir: packageDir });
 			proc.stderr.on('data', function (data) { 
-				throw new PluginError('cfx',{
-					message: 'xpi, '+data
-				});
+				stream.emit('error', new PluginError('cfx', 'xpi, '+data));
 			});
 
 			// keep track of what xpi is creating (ex: "Exporting extension to src.xpi.")
@@ -53,9 +51,7 @@ var cfxPackagePlugin = function() {
 					
 				}else{
 					process.chdir(cwd_orig);
-					throw new PluginError('cfx',{
-						message: 'xpi error ('+code+')'
-					});
+					stream.emit('error', new PluginError('cfx', 'xpi error ('+code+'): '+cfxXpiOut));
 				}
 
 				process.chdir(cwd_orig);
